@@ -1,10 +1,10 @@
 """
 This file contains the TrackColors class for interacting with Track colors documents in MongoDB.
 """
-from app import db
+from app.db import mongodb
 
 
-class TrackColors(db.Mongo):
+class TrackColors(mongodb.Mongo):
     """
     The class for all track-related database operations.
     """
@@ -32,4 +32,4 @@ class TrackColors(db.Mongo):
         Returns a track color object by its filepath.
         """
         track_color = self.collection.find_one({"filepath": filepath})
-        return db.convert_one(track_color)
+        return mongodb.convert_one(track_color)

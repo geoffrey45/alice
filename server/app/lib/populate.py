@@ -193,7 +193,7 @@ class Populate:
 
         track["image"] = album.image
 
-        upsert_id = tracks_instance.insert_song(track)
+        upsert_id = tracks_instance.insert_track(track)
         track["_id"] = {"$oid": str(upsert_id)}
 
         api.TRACKS.append(Track(track))

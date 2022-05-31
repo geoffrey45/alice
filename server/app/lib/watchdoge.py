@@ -66,7 +66,7 @@ def add_track(filepath: str) -> None:
             api.ALBUMS.append(album)
 
         tags["image"] = album.image
-        upsert_id = instances.tracks_instance.insert_song(tags)
+        upsert_id = instances.tracks_instance.insert_track(tags)
         tags["_id"] = {"$oid": str(upsert_id)}
 
         api.TRACKS.append(models.Track(tags))
@@ -87,13 +87,13 @@ def remove_track(filepath: str) -> None:
     fpath = filepath.replace(fname, "")
 
     try:
-        trackid = instances.tracks_instance.get_song_by_path(
+        trackid = instances.tracks_instance.get_track_by_path(
             filepath)["_id"]["$oid"]
     except TypeError:
         print(f"💙 Watchdog Error: Error removing track {filepath} TypeError")
         return
 
-    instances.tracks_instance.remove_song_by_id(trackid)
+    instances.tracks_instance.remove_track_by_id(trackid)
 
     for track in api.TRACKS:
         if track.trackid == trackid:

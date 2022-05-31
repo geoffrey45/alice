@@ -21,7 +21,7 @@ def create_all_tracks() -> List[models.Track]:
         try:
             os.chmod(track["filepath"], 0o755)
         except FileNotFoundError:
-            instances.tracks_instance.remove_song_by_id(track["_id"]["$oid"])
+            instances.tracks_instance.remove_track_by_id(track["_id"]["$oid"])
             api.DB_TRACKS.remove(track)
 
         tracks.append(models.Track(track))

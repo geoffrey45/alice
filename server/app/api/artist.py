@@ -19,7 +19,7 @@ def get_artist_data(artist: str):
     artist_obj = instances.artist_instance.get_artists_by_name(artist)
 
     def get_artist_tracks():
-        songs = instances.tracks_instance.find_songs_by_artist(artist)
+        songs = instances.tracks_instance.find_tracks_by_artist(artist)
 
         return songs
 
@@ -30,7 +30,7 @@ def get_artist_data(artist: str):
         artist_albums = []
         albums_with_count = []
 
-        albums = instances.tracks_instance.find_songs_by_albumartist(artist)
+        albums = instances.tracks_instance.find_tracks_by_albumartist(artist)
 
         for song in albums:
             if song["album"] not in artist_albums:
