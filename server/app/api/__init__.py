@@ -18,6 +18,8 @@ from app.lib import playlistlib
 DB_TRACKS = instances.tracks_instance.get_all_tracks()
 VALID_FOLDERS: Set[str] = set()
 
+print(instances.tracks_instance)
+
 ALBUMS: List[models.Album] = []
 TRACKS: List[models.Track] = []
 PLAYLISTS: List[models.Playlist] = []

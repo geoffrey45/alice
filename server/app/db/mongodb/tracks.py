@@ -11,6 +11,9 @@ class Tracks(MongoTracks):
     The class for all track-related database operations.
     """
 
+    def __init__(self):
+        super(Tracks, self).__init__()
+
     def drop_db(self):
         self.collection.drop()
 
@@ -74,9 +77,7 @@ class Tracks(MongoTracks):
         """
         Returns a sorted list of all the tracks exactly matching the folder in the query params
         """
-        songs = self.collection.find({"folder": query}).sort(
-            "title", pymongo.ASCENDING
-        )
+        songs = self.collection.find({"folder": query}).sort("title", pymongo.ASCENDING)
         return convert_many(songs)
 
     def find_tracks_by_artist(self, query: str) -> list:

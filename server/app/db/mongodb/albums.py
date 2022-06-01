@@ -13,6 +13,9 @@ class Albums(MongoAlbums):
     The class for all album-related database operations.
     """
 
+    def __init__(self):
+        super(Albums, self).__init__()
+
     def insert_album(self, album: Album) -> str:
         album = album.__dict__
         upsert_id = self.collection.update_one(

@@ -8,7 +8,6 @@ gpath=$(poetry run which gunicorn)
 while getopts ':s' opt; do
   case $opt in
     s)
-      echo "🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴"
       cd "./app"
       "$gpath" -b 0.0.0.0:9877 -w 4 --threads=2 "imgserver:app" &
       cd ../

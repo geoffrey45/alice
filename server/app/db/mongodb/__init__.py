@@ -63,6 +63,7 @@ class MongoAlbums(Mongo, AlbumsMethods):
         self.collection = self.db["ALL_ALBUMS"]
 
 
+
 def convert_one(track: dict) -> dict:
     """
     Converts a single mongodb cursor to a json object.

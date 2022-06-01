@@ -10,6 +10,9 @@ class Artists(MongoArtists):
     The artist class for all artist related database operations.
     """
 
+    def __init__(self):
+        super(Artists, self).__init__()
+
     def insert_artist(self, artist_obj: dict) -> None:
         self.collection.update_one(
             artist_obj, {"$set": artist_obj}, upsert=True

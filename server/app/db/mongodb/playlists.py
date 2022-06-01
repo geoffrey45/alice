@@ -13,6 +13,9 @@ class Playlists(MongoPlaylists):
     The class for all playlist-related database operations.
     """
 
+    def __init__(self):
+        super(Playlists, self).__init__()
+
     def insert_playlist(self, playlist: dict) -> None:
         return self.collection.update_one(
             {"name": playlist["name"]},
