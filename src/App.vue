@@ -46,7 +46,7 @@ const app_dom = document.getElementById("app");
 const route = useRoute();
 const router = useRouter();
 
-// function to add the 
+// function to add the
 
 queue.readQueue();
 useShortcuts(useQStore);
